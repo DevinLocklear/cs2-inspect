@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CS2 Inspect</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background: #1a1a2e;
+            color: #eee;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            gap: 20px;
+        }
+        a {
+            color: #00ff88;
+            font-size: 18px;
+        }
+        p { font-size: 16px; opacity: 0.7; }
+    </style>
+    <script>
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const link = params.get('link');
+            if (link) {
+                const decoded = decodeURIComponent(link);
+                document.getElementById('fallback').href = decoded;
+                window.location.href = decoded;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>🔫 Opening CS2 Inspector...</h2>
+    <p>CS2 should open automatically. If not:</p>
+    <a id="fallback" href="#">Click here to inspect manually</a>
+</body>
+</html>
